@@ -19,7 +19,7 @@ const BlogItem = ({ image, title, description }) => {
             onClick={toggleExpanded}
             className="text-[#E7AA0F] font-medium underline mt-2 focus:outline-none"
           >
-            Read More
+            {expanded? "View Less" : "View More"}
           </button>
         </>
       );
@@ -27,7 +27,7 @@ const BlogItem = ({ image, title, description }) => {
   };
 
   return (
-    <div className="md:max-w-[1300px] md:mx-auto ">
+    <div className="md:max-w-[1300px] md:mx-auto grid grid-cols-1 md:grid-cols-2 gap-2">
     <div className="mx-auto md:mx-0 mt-5 border border-gray-300 rounded-xl p-4 shadow-lg w-[380px]">
       <img
         className="w-full h-[200px] object-cover rounded-lg"

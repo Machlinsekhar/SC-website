@@ -8,15 +8,21 @@ import Timeline from "./components/Timeline";
 import TitleBlock from "./components/TitleBlock";
 import Loader from "./components/Loader";
 import ProgramCard from "./components/ProgramCard";
-import rectangleImage from "./images/program-domain.png"
+import python from "./images/python.png";
+import iot from "./images/iot.png";
+import android from "./images/android.png";
+import industrial_automation from "./images/industrial-automation.png";
+import web from "./images/web.png";
 import Bubbles from "./components/Bubbles";
-import Game from "./components/Game";
+import WhySC from "./components/WhySC";
 import LocomotiveScroll from 'locomotive-scroll';
 import BlogItem from "./components/Blog";
+import FooterWithLogo from "./components/Footer";
+import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-
+  
   const blogs = [
     {
       id: 1,
@@ -42,6 +48,56 @@ function App() {
     // Add more blog objects as needed
   ];
 
+  const COURSES = [
+    {
+      id: 1,
+      image: python,
+      title: "Python Development",
+      originalPrice: "2500",
+      discountedPrice: "1490",
+      description:
+        "Dive into the world of coding mastery with our Python Development Course. From building applications to automating tasks, you'll grasp Python's versatility. Through hands-on projects, you'll unlock the power of this language in just 30 days. Get ready to code your way to innovation!",
+    },
+    {
+      id: 2,
+      image: web,
+      title: "Web Development",
+      originalPrice: "2000",
+      discountedPrice: "1290",
+      description:
+        "Unleash your creativity and shape the digital landscape with our Web Development Course. Learn to craft responsive, user-friendly websites using HTML, CSS, and JavaScript. With three immersive projects each month, you'll be designing your web success story in just 30 days!",
+      },
+   
+    {
+      id: 3,
+      image: android,
+      title: "Android Development",
+      originalPrice: "2000",
+      discountedPrice: "1290",
+      description:
+        "Join the ranks of app creators with our Android Development Course. Discover the art of building Android applications that captivate users. Through a series of real-world projects, you'll master the intricacies of app design, development, and deployment in just 30 days.",
+    },
+     {
+      id: 4,
+      image: iot,
+      title: "IOT",
+      originalPrice: "2000",
+      discountedPrice: "1290",
+      description:
+        "Immerse yourself in the Internet of Things (IoT) realm and shape the future of connectivity. In our IoT Course, you'll learn to build smart devices that communicate and interact seamlessly. With hands-on projects, you'll navigate the world of sensors, actuators, and data streams, all within 30 days.",
+    },
+    {
+      id: 5,
+      image: industrial_automation,
+      title: "Industrial Automation",
+      originalPrice: "2000",
+      discountedPrice: "1290",
+      description:
+        "Transform industries through automation expertise in just 30 days. Our Industrial Automation Course equips you with the skills to design, program, and manage automated systems. Through practical projects, you'll become a force driving efficiency and innovation in industrial processes."
+       },
+    // ... (add more course objects as needed)
+  ];
+
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: document.querySelector('.App'),
@@ -49,11 +105,11 @@ function App() {
       multiplier: 0.5,
       lerp: 0.9  // Adjust this value to change the inertia (higher = more "ease out")
     });
-  
+
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-  
+
     // Clean up the effect on component unmount
     return () => {
       if (scroll) scroll.destroy();
@@ -61,58 +117,76 @@ function App() {
   }, []);
 
   return (
-    <div className="App md:max-w-[1300px] md:mx-auto font-Poppins" data-scroll-container>
+    <div className="App md:max-w-[1920px] md:mx-auto font-Poppins " data-scroll-container>
       {isLoading ? (
         <Loader />
       ) : (
         <>
           <Header />
           <Hero />
+          <div className="md:mx-10 px-2">
           <Numbers />
           <TitleBlock
-            title="The App"
+            title="Courses"
+          />
+          <div className="p-5">
+          <ScrollingCarousel >
+{COURSES.map((course) => (
+                    <ProgramCard
+                      key={course.id}
+                      image={course.image}
+                      title={course.title}
+                      originalPrice={course.originalPrice}
+                      discountedPrice={course.discountedPrice}
+                      description={course.description}
+                    />
+                  ))}
+      </ScrollingCarousel>
+          </div>
+          
+
+<TitleBlock title="Why Source Catalyst?" />
+<WhySC/>
+          <TitleBlock
+            title="Our App"
             subtitle="Your Gateway to Seamless Learning and Professional Growth"
           />
           <Image />
-          <TitleBlock
-            title="Programs"
-            subtitle="Unleashing your Potential for Skill Development and Career Advancement"
-          />
-          <ProgramCard
-            image={rectangleImage}
-            title="Source Catalyst Upskill Program"
-            originalPrice="2500"
-            discountedPrice="1490"
-          />
+
           <TitleBlock title="Timeline" />
           <Timeline />
           <TitleBlock
             title="Internship Listings"
             subtitle="Discover the Best Internships Aligned with Your Skills"
           />
-          <Bubbles className="text-4xl"/>
+          <Bubbles className="text-4xl" />
 
           <TitleBlock
             title="Blogs"
             subtitle="Handpicked blogs for the curious minds."
           />
           <div className="md:flex md:flex-row md:justify-start">
-  {blogs.map((blog) => (
-    <BlogItem
-      className="flex justify-start"
-      key={blog.id}
-      image={blog.image}
-      title={blog.title}
-      description={blog.description}
-    />
-  ))}
-</div>
+            {blogs.map((blog) => (
+              <BlogItem
+                className="flex justify-start"
+                key={blog.id}
+                image={blog.image}
+                title={blog.title}
+                description={blog.description}
+              />
+            ))}
+          </div>
+          <FooterWithLogo/>
+          </div>
         </>
- 
+
       )}
     </div>
 
   );
 }
 
+
+
 export default App;
+

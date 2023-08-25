@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,44 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* No Scrollbar Styles */
+/* .no-scrollbar::-webkit-scrollbar {
+  display: none;
+} */
+
+/*.no-scrollbar {
+  -ms-overflow-style: none; *//* IE and Edge */
+ /* scrollbar-width: none; *//* Firefox */ /*
 }
+*/
+/* Responsive Variants */
+/* @media (min-width: 640px) {
+  .sm:no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sm:no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+} */
+
+/* @media (min-width: 768px) {
+  .md:no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .md:no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+} */
+
+/* Add more responsive breakpoints as needed */
+
+/* .divContent{
+  width: 400px;
+} */
+

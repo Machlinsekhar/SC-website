@@ -39,12 +39,32 @@ const Bubbles = () => {
       ctx.arc(sphere.x, sphere.y, sphere.radius, 0, Math.PI * 2);
       ctx.fill();
       ctx.closePath();
-
+    
       ctx.globalAlpha = 1;
       ctx.fillStyle = '#fff';
-      ctx.font = '14px poppins'; // Updated font to 'poppins'
+      ctx.font = '14px poppins';
       ctx.textAlign = 'center';
-      ctx.fillText(sphere.text, sphere.x, sphere.y + 4); // Added padding to y-coordinate
+    
+      // Wrap text within the sphere
+      const maxTextWidth = sphere.radius * 2 - 10; // Adjust padding
+      const words = sphere.text.split(' ');
+      let line = '';
+      let y = sphere.y;
+    
+      for (let i = 0; i < words.length; i++) {
+        const testLine = line + words[i] + ' ';
+        const testWidth = ctx.measureText(testLine).width;
+    
+        if (testWidth > maxTextWidth) {
+          ctx.fillText(line, sphere.x, y + 4);
+          line = words[i] + ' ';
+          y += 18; // Adjust line height
+        } else {
+          line = testLine;
+        }
+      }
+    
+      ctx.fillText(line, sphere.x, y); // Fill the last line
     };
 
     const update = () => {

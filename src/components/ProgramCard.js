@@ -8,7 +8,7 @@ const ProgramCard = ({ image, title, originalPrice, discountedPrice, description
   };
 
   return (
-    <div className="max-w-[300px] min-w-[300px] mr-10">
+    <div className="max-w-[300px] min-w-[300px] mr-10 bg-white">
       <div className="border border-gray-300 rounded-xl p-4 shadow-lg ">
         <div className="flex justify-center">
           <img

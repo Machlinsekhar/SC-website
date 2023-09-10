@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import bg from '../images/bg.png';
 import logo from '../images/logo-white.png';
 
 const Loader = () => {
@@ -36,7 +36,7 @@ const Loader = () => {
   }, [selectedText]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-purple-500">
+    <div className="flex flex-col items-center justify-center bg-no-repeat bg-cover bg-center h-screen"  style={{ backgroundImage: `url(${bg})`}}>
       <div className="animate-[spin_2s_ease-in-out] rounded-full h-32 w-32">
         <img src={logo} alt="Logo" className="w-full h-full" />
       </div>

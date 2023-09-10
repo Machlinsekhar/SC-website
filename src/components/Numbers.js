@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 function Numbers() {
   const [studentsUpskilled, setStudentsUpskilled] = useState(0);
-  const [studentsCommunity, setStudentsCommunity] = useState(0);
+  const [activeMembers, setStudentsCommunity] = useState(0);
   const [studentsPlaced, setStudentsPlaced] = useState(0);
   const [targetReached, setTargetReached] = useState(false);
 
   const targetValues = {
     studentsUpskilled: 1500,
-    studentsCommunity: 2500,
+    activeMembers: 2500,
     studentsPlaced: 200,
   };
 
@@ -18,7 +18,7 @@ function Numbers() {
         prevValue < targetValues.studentsUpskilled ? prevValue + 10 : targetValues.studentsUpskilled
       );
       setStudentsCommunity((prevValue) =>
-        prevValue < targetValues.studentsCommunity ? prevValue + 15 : targetValues.studentsCommunity
+        prevValue < targetValues.activeMembers ? prevValue + 15 : targetValues.activeMembers
       );
       setStudentsPlaced((prevValue) =>
         prevValue < targetValues.studentsPlaced ? prevValue + 5 : targetValues.studentsPlaced
@@ -33,12 +33,12 @@ function Numbers() {
   useEffect(() => {
     if (
       studentsUpskilled === targetValues.studentsUpskilled &&
-      studentsCommunity === targetValues.studentsCommunity &&
+      activeMembers === targetValues.activeMembers &&
       studentsPlaced === targetValues.studentsPlaced
     ) {
       setTargetReached(true);
     }
-  }, [studentsUpskilled, studentsCommunity, studentsPlaced]);
+  }, [studentsUpskilled, activeMembers, studentsPlaced]);
 
   const getNumberDisplayStyle = (number) => {
     if (number === targetValues.studentsUpskilled) {
@@ -50,7 +50,7 @@ function Numbers() {
   const getNumberDisplayText = (number) => {
     if (
       studentsUpskilled === targetValues.studentsUpskilled &&
-      studentsCommunity === targetValues.studentsCommunity &&
+      activeMembers === targetValues.activeMembers &&
       studentsPlaced === targetValues.studentsPlaced &&
       targetReached
     ) {
@@ -58,23 +58,25 @@ function Numbers() {
     }
     return number;
   };
-
+  
   return (
-    <div className="space-y-10 md:space-y-0 ml-5 flex flex-col md:flex md:flex-row justify-between md:max-w-[1300px] md:mx-auto mt-10">
+    <div className=" mx-5 flex flex-row md:flex font-lexend-deco md:flex-row justify-between md:max-w-[1300px] md:mx-auto pt-10">
+
+<div className={`flex flex-col ${getNumberDisplayStyle(activeMembers)}`}>
+        <p className="md:text-4xl text-3xl text-[#3497F9] text-left font-bold">{getNumberDisplayText(activeMembers)}</p>
+        <p className="text-lg font-medium mt-1 text-left">Active Members</p>
+      </div>
+
       <div className={`flex flex-col ${getNumberDisplayStyle(studentsUpskilled)}`}>
-        <p className="text-4xl text-[#AA4EC3] text-left font-bold">{getNumberDisplayText(studentsUpskilled)}</p>
+        <p className="md:text-4xl text-3xl text-[#3497F9] text-left font-bold">{getNumberDisplayText(studentsUpskilled)}</p>
         <p className="text-lg font-medium mt-1 text-left">Students Upskilled</p>
       </div>
 
-      <div className={`flex flex-col ${getNumberDisplayStyle(studentsCommunity)}`}>
-        <p className="text-4xl text-[#AA4EC3] text-left font-bold">{getNumberDisplayText(studentsCommunity)}</p>
-        <p className="text-lg font-medium mt-1 text-left">Students Community</p>
-      </div>
 
-      <div className={`flex flex-col ${getNumberDisplayStyle(studentsPlaced)}`}>
-        <p className="text-4xl text-[#AA4EC3] text-left font-bold">{getNumberDisplayText(studentsPlaced)}</p>
+      {/* <div className={`flex flex-col ${getNumberDisplayStyle(studentsPlaced)}`}>
+        <p className="text-4xl text-[#3497F9] text-left font-bold">{getNumberDisplayText(studentsPlaced)}</p>
         <p className="text-lg font-medium mt-1 text-left">Students Placed</p>
-      </div>
+      </div> */}
     </div>
   );
 }

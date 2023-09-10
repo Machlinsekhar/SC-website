@@ -1,11 +1,15 @@
 import React from 'react';
 import placeholder from '../images/placeholder.png';
+import CustomCarousel from './CustomCarousel';
+import bg from '../images/bg.png';
 
 const Hero = () => {
+
+
     return (
 
-        <div className='font-Poppins w-full bg-gradient-to-r from-[#AA4EC3] to-[#540469]'>
-        <div className='grid place-items-center'>
+        <div className=" w-full h-full bg-no-repeat bg-cover bg-center md:p-20"  style={{ backgroundImage: `url(${bg})`}}>
+        {/* <div className='grid place-items-center'>
           <div className="grid place-item-center max-h-[1000px] my-5">
             <img
               className="rounded-xl h-[200px]"
@@ -14,18 +18,24 @@ const Hero = () => {
             />
           </div>
         </div>
-      
-        <div className='mx-5'>
-    <p className='text-2xl font-bold text-white text-left'>
+       */}
+       {/* <CustomCarousel /> */}
+       
+       <div className="mx-5 py-20  ">
+  <p className=" font-lexend-deco font-bold text-white text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl">
     LEARN. GROW. UPSKILL.
-    </p>
+  </p>
 
-    
-    <p className='text-xl font-regular text-white text-left mt-2 pb-5'>
-    At <span className='font-bold'>Source Catalyst</span>, our mission is to empower individuals by providing them with the tools and resources to learn, develop, and upskill for a brighter future.
-    </p>
+  <p className=" font-regular text-white text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mt-2 pb-5">
+    The Next Step in Your Career Starts Here.
+  </p>
 
-    </div>
+  <div className="flex justify-center pb-5">
+  <button className="sm:w-60 h-12 sm:h-16 p-2 sm:p-3 bg-main-but font-lexend-deco rounded-full text-base sm:text-lg md:text-xl lg:text-2xl  text-white text-center border border-white border-2">
+  START LEARNING
+</button>
+  </div>
+</div>
 
        </div>
   )

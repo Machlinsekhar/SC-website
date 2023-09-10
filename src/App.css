@@ -1,3 +1,9 @@
+
+/* // In your CSS file (e.g., styles.css) */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 /* .App {
   text-align: center;
 }

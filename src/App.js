@@ -1,4 +1,25 @@
+// // App.js
+// import React from 'react';
+// import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+// import Home from './Home';
+// import Register from './components/Register';
+
+// const App = () => {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route exact path="/" component={Home} />
+//         <Route path="/registration" component={Register} />
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
+
+
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -17,12 +38,93 @@ import Bubbles from "./components/Bubbles";
 import WhySC from "./components/WhySC";
 import LocomotiveScroll from 'locomotive-scroll';
 import BlogItem from "./components/Blog";
-import FooterWithLogo from "./components/Footer";
+import Foooter from "./components/Foooter";
+import Register from "./components/Register";
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
+import LogoSlider from "./components/LogoSlider";
+import Card from "./components/Card";
+import accenture from './images/companies/accenture.png';
+import cisco from './images/companies/cisco.png';
+import intel from './images/companies/intel.png';
+import rocket from './images/rocket.png';
+import coinbag from './images/coinbag.png';
+import handshake from './images/handshake.png';
+import phone from './images/phone.png';
+import prasad from './images/prasad.png';
+import ciba from './images/ciba.png';
+import knowledge from './images/knowlege1.png'
+import TestimonialBlock from "./components/TestimonialBlock";
+import testimonialImage from './images/testimonial.png';
+import ProfileCard from "./ProfileCard";
+import Advisors from "./components/Advisors";
+import QuestionBox from "./components/QuestionBox";
+import BlockImage from "./components/BlockImage";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  
+  const Bheading= "Why self learning is important in 2023?";
+  const Bcontent ="Welcome to 2023, the era where the only constant is change! Gone are the days when a single degree could carry you through a lifetime career. In today's fast-paced, tech-driven world, if you're not learning, you're falling behind. That's right—your ability to adapt and grow is no longer a luxury; it's a necessity. But let's face it, traditional education systems can't keep up";
+  const companies = [
+    accenture, cisco, intel, accenture, cisco, intel, accenture, cisco, intel, accenture, cisco, intel
+  ];
+  const mentors = [
+    accenture, cisco, intel, accenture, cisco, intel, accenture, cisco, intel, accenture, cisco, intel
+  ];
+
+  const why = [
+    {
+      id: 1,
+      image: rocket,
+      title: 'SKYROCKET YOUR CAREER',
+      description: 'Why settle for less when you can aim for the stars? Get mentored by industry leaders and secure placements at India\'s top companies.'
+    },
+    {
+      id: 2,
+      image: coinbag,
+      title: 'EARN WHILE YOU LEARN',
+      description: 'Forget unpaid internships! Work on projects that not only boost your skills but also your bank balance.'
+    },
+    {
+      id: 3, image: handshake,
+      title: 'JOIN THE ELITE CIRCLE',
+      description: 'Become a part of an exclusive community where you\'re not just a student; you\'re a future industry leader.'
+    },
+    {
+      id: 4, image: phone,
+      title: 'AT YOUR FINGERTIPS',
+      description: 'Our mobile-first approach lets you work on projects, interact with the community, and get instant updates, all from the palm of your hand.'
+    }
+  ]
+
+  const testimonialText = "\"Before joining this program, I had basic coding skills. But the project on machine learning took my skills to another level. I got to work on a real-world data set and even presented my findings to industry experts. The mentors were incredibly supportive, and the resources were top-notch. This project was a turning point in my academic journey.\"";
+  const tname="Anjali Mehta";
+  const title="Computer Science Student";
+  const advice= "Hello Future Leaders! I'm thrilled to be part of the advisory board here. This program is a goldmine for anyone serious about tech and innovation. Don't miss this chance to learn, grow, and upskill. Your future self will thank you.";
+  const aname="PRASAD MENON";
+  const post="Position Ciba";
+  const faq = [
+    {
+      id:1,
+      question: "What projects will I be working on?",
+      answer: "React is a JavaScript library for building user interfaces.",
+    },
+    {
+      id:2,
+      question: "How flexible are the program timings?",
+      answer: "Our program is designed to fit your schedule. You can choose to work on projects at your own pace, and we offer 24/7 support to assist you whenever you need it.",
+    },
+    {
+      id:3,
+      question: "Do I need any prior experience or qualifications?",
+      answer: "Our program is designed to fit your schedule. You can choose to work on projects at your own pace, and we offer 24/7 support to assist you whenever you need it.",
+    },
+    {
+      id:4,
+      question: "What projects will I be working on?",
+      answer: "Our program is designed to fit your schedule. You can choose to work on projects at your own pace, and we offer 24/7 support to assist you whenever you need it.",
+    },
+    // Add more objects with questions and answers as needed
+  ];
   const blogs = [
     {
       id: 1,
@@ -66,8 +168,8 @@ function App() {
       discountedPrice: "1290",
       description:
         "Unleash your creativity and shape the digital landscape with our Web Development Course. Learn to craft responsive, user-friendly websites using HTML, CSS, and JavaScript. With three immersive projects each month, you'll be designing your web success story in just 30 days!",
-      },
-   
+    },
+
     {
       id: 3,
       image: android,
@@ -77,7 +179,7 @@ function App() {
       description:
         "Join the ranks of app creators with our Android Development Course. Discover the art of building Android applications that captivate users. Through a series of real-world projects, you'll master the intricacies of app design, development, and deployment in just 30 days.",
     },
-     {
+    {
       id: 4,
       image: iot,
       title: "IOT",
@@ -94,7 +196,7 @@ function App() {
       discountedPrice: "1290",
       description:
         "Transform industries through automation expertise in just 30 days. Our Industrial Automation Course equips you with the skills to design, program, and manage automated systems. Through practical projects, you'll become a force driving efficiency and innovation in industrial processes."
-       },
+    },
     // ... (add more course objects as needed)
   ];
 
@@ -117,70 +219,145 @@ function App() {
   }, []);
 
   return (
-    <div className="App md:max-w-[1920px] md:mx-auto font-Poppins " data-scroll-container>
+    <div className="App md:max-w-[1920px] md:mx-auto " data-scroll-container>
       {isLoading ? (
         <Loader />
       ) : (
         <>
           <Header />
           <Hero />
-          <div className="md:mx-10 px-2">
-          <Numbers />
-          <TitleBlock
-            title="Courses"
-          />
-          <div className="p-5">
-          <ScrollingCarousel >
-{COURSES.map((course) => (
-                    <ProgramCard
-                      key={course.id}
-                      image={course.image}
-                      title={course.title}
-                      originalPrice={course.originalPrice}
-                      discountedPrice={course.discountedPrice}
-                      description={course.description}
-                    />
-                  ))}
-      </ScrollingCarousel>
-          </div>
+
+          <div className="md:px-10 px-2 bg-[#F3F3F3]">
+            <Numbers />
+            <TitleBlock
+              title="SUCCESS STORIES"
+              subtitle="Companies Where Our Students Shine"
+            />
+            <LogoSlider images={companies} />
+
+            <TitleBlock
+              subtitle="Hear from People Like You"
+            />
+            <div className=" py-8 flex items-center justify-center">
+              <div className=" w-326 ">
+                
+                <TestimonialBlock testimonial={testimonialText} imageSrc={testimonialImage} tname={tname} title={title}/>
+                
+              </div>
+            </div>
+            <TitleBlock
+              title="PARTNERED WITH THE BEST"
+              subtitle="Where Our Mentors Come From"
+            />
+            <LogoSlider images={mentors} />
+
+            <TitleBlock
+              title="WHY CHOOSE US?"
+              subtitle="Unlock Your Full Potential with Us" />
+
+            <div className="container mx-auto py-8">
+              <div className="flex flex-wrap justify-center">
+                {why.map((item) => (
+                  <Card key={item.id} data={item} />
+                ))}
+              </div>
+            </div>
+            <TitleBlock
+              title="DISCOVER YOUR POTENTIAL"
+              subtitle="Stand Out From The Crowd" />
+<div className="container mx-auto py-8 ">
+      <div className="flex justify-center">
+        <ProfileCard
+          name="Rahul Gupta"
+          degree="BTech Final Year Student"
+          photoSrc={testimonialImage}
           
+        />
+      </div>
+    </div>
 
-<TitleBlock title="Why Source Catalyst?" />
-<WhySC/>
-          <TitleBlock
-            title="Our App"
-            subtitle="Your Gateway to Seamless Learning and Professional Growth"
-          />
-          <Image />
+    <div className="text-center p-10 text-lg">
+  Got a <span className="text-blue-500">free </span>profile on Source Catalyst? Then you're already ahead. We make you <span className="text-blue-500">stand out</span>, opening doors to <span className="text-blue-500">growth opportunities</span> you won't find elsewhere. Simply put, being here is a game-changer for your career. Don't miss out.
+</div>
 
-          <TitleBlock title="Timeline" />
-          <Timeline />
-          <TitleBlock
-            title="Internship Listings"
-            subtitle="Discover the Best Internships Aligned with Your Skills"
-          />
-          <Bubbles className="text-4xl" />
+    <TitleBlock
+              title="EXPERT ADVISORS"
+              subtitle="Meet the Innovators Guiding Our Path" />
+              <div className="md:m-20">
+<Advisors advice={advice} imageSrc={prasad} aname={aname} title={post} logoSrc={ciba}/>
+</div>
+            <TitleBlock
+              title="FAQ CORNER"
+              subtitle="Your Questions, Answered" />
+ <div className="container mx-auto py-8` mt-10">
+      {faq.map((faq, id) => (
+        <QuestionBox key={id} question={faq.question} answer={faq.answer} />
+      ))}
+    </div>
+            <TitleBlock 
+              title="KNOWLEDGE CENTER"
+              subtitle="Read, Learn, and Grow with Us" />
+ <div className="container mx-auto py-8">
+      <BlockImage
+        imageUrl={knowledge}
+        heading={Bheading}
+        paragraph={Bcontent}
+        />
+      </div>
+            {/* <div className="p-5">
 
-          <TitleBlock
-            title="Blogs"
-            subtitle="Handpicked blogs for the curious minds."
-          />
-          <div className="md:flex md:flex-row md:justify-start">
-            {blogs.map((blog) => (
-              <BlogItem
-                className="flex justify-start"
-                key={blog.id}
-                image={blog.image}
-                title={blog.title}
-                description={blog.description}
-              />
-            ))}
+              <ScrollingCarousel >
+                {COURSES.map((course) => (
+                  <ProgramCard
+                    key={course.id}
+                    image={course.image}
+                    title={course.title}
+                    originalPrice={course.originalPrice}
+                    discountedPrice={course.discountedPrice}
+                    description={course.description}
+                  />
+                ))}
+              </ScrollingCarousel>
+            </div> 
+             <WhySC />
+            <TitleBlock
+              title="Our App"
+              subtitle="Your Gateway to Seamless Learning and Professional Growth"
+            />
+            <Image />
+
+            <TitleBlock title="Timeline" />
+            <Timeline />
+            <TitleBlock
+              title="Internship Listings"
+              subtitle="Discover the Best Internships Aligned with Your Skills"
+            />
+            <Bubbles className="text-4xl" />
+
+            <TitleBlock
+              title="Blogs"
+              subtitle="Handpicked blogs for the curious minds."
+            />
+            <div className="md:flex md:flex-row md:justify-center">
+              {blogs.map((blog) => (
+                <BlogItem
+                  className="flex justify-start"
+                  key={blog.id}
+                  image={blog.image}
+                  title={blog.title}
+                  description={blog.description}
+                />
+              ))}
+            </div> */}
+            {/* <FooterWithLogo/> */}
+
           </div>
-          <FooterWithLogo/>
-          </div>
+          <Foooter />
         </>
 
       )}
+      
+      {/* <Register /> */}
     </div>
 
   );
@@ -189,4 +366,5 @@ function App() {
 
 
 export default App;
+
 

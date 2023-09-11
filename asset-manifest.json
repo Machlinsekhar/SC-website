@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/SC-website/static/css/main.a95be7a8.css",
+    "main.js": "/SC-website/static/js/main.e4c2d366.js",
+    "static/js/787.cd5b64f4.chunk.js": "/SC-website/static/js/787.cd5b64f4.chunk.js",
+    "static/media/3.png": "/SC-website/static/media/3.2b81f99c1a1febfe31d3.png",
+    "static/media/2.png": "/SC-website/static/media/2.53bc65f926c1995778a1.png",
+    "static/media/1.png": "/SC-website/static/media/1.fd6782d460438cb24dbd.png",
+    "static/media/4.png": "/SC-website/static/media/4.b72b9bb39bec4bb8c493.png",
+    "static/media/5.png": "/SC-website/static/media/5.1a81fc022ac284fd14d0.png",
+    "static/media/bg.png": "/SC-website/static/media/bg.27a854814933ecaec3e4.png",
+    "static/media/app-mockup.png": "/SC-website/static/media/app-mockup.60ab4bf32afb084473ad.png",
+    "static/media/knowlege1.png": "/SC-website/static/media/knowlege1.84b2d355454e5216cd59.png",
+    "static/media/logo-white.png": "/SC-website/static/media/logo-white.d4c68f65033d0c55361a.png",
+    "static/media/prasad.png": "/SC-website/static/media/prasad.1639a064e5c8b4c8bef7.png",
+    "static/media/testimonial.png": "/SC-website/static/media/testimonial.6d3422b7d79ede0def04.png",
+    "static/media/slick.svg": "/SC-website/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/SC-website/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/SC-website/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/SC-website/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/SC-website/index.html",
+    "main.a95be7a8.css.map": "/SC-website/static/css/main.a95be7a8.css.map",
+    "main.e4c2d366.js.map": "/SC-website/static/js/main.e4c2d366.js.map",
+    "787.cd5b64f4.chunk.js.map": "/SC-website/static/js/787.cd5b64f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a95be7a8.css",
+    "static/js/main.e4c2d366.js"
+  ]
+}

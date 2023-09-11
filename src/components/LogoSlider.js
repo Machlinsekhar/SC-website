@@ -21,14 +21,15 @@ const LogoSlider = ({ images }) => {
 
   return (
     <div className="my-logo-slider my-10 py-5 bg-white">
-      <Slider {...settings}>
-        {images.map((imageUrl, index) => (
-          <div key={index}>
-            <img src={imageUrl} alt={`Logo ${index + 1}`} />
-          </div>
-        ))}
-      </Slider>
-    </div>
+  <Slider {...settings}>
+    {images.map((imageUrl, index) => (
+      <div key={index} className="hover:scale-105 transition-transform duration-300 ease-in-out">
+        <img src={imageUrl} alt={`Logo ${index + 1}`} className="px-2"/>
+      </div>
+    ))}
+  </Slider>
+</div>
+
   );
 };
 

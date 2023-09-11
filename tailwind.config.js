@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Poppins: ["Poppins", "sans-serif"],
-        'lexend-deco': ['"Lexend Deca"', 'sans'],
+        'lexend-deca': ['"Lexend Deca"', 'sans'],
         jost: ['Jost', 'sans'],
       },
       fontSize: {

@@ -22,7 +22,7 @@ const Hero = () => {
        {/* <CustomCarousel /> */}
        
        <div className="mx-5 py-20  ">
-  <p className=" font-lexend-deco font-bold text-white text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl">
+  <p className=" font-lexend-deca font-bold text-white text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl">
     LEARN. GROW. UPSKILL.
   </p>
 
@@ -31,7 +31,7 @@ const Hero = () => {
   </p>
 
   <div className="flex justify-center pb-5">
-  <button className="sm:w-60 h-12 sm:h-16 p-2 sm:p-3 bg-main-but font-lexend-deco rounded-full text-base sm:text-lg md:text-xl lg:text-2xl  text-white text-center border border-white border-2">
+  <button className="sm:w-60 h-12 sm:h-16 p-2 sm:p-3 bg-[#2E7CF6] font-lexend-deca rounded-full text-base sm:text-lg md:text-xl lg:text-2xl  text-white text-center border border-white border-2">
   START LEARNING
 </button>
   </div>

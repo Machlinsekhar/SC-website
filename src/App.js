@@ -63,7 +63,9 @@ import BlockImage from "./components/BlockImage";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const Bheading= "Why self learning is important in 2023?";
-  const Bcontent ="Welcome to 2023, the era where the only constant is change! Gone are the days when a single degree could carry you through a lifetime career. In today's fast-paced, tech-driven world, if you're not learning, you're falling behind. That's right—your ability to adapt and grow is no longer a luxury; it's a necessity. But let's face it, traditional education systems can't keep up";
+  const Bcontent ="Welcome to 2023, the era where the only constant is change! Gone are the days when a single degree could carry you through a lifetime career. In today's fast-paced, tech-driven world, if you're not learning, you're falling behind. That's right—your ability to adapt and grow is no longer a luxury; it's a necessity. But let's face it, traditional education systems can't keep up...";
+  const BMorecontent ="Welcome to 2023, the era where the only constant is change! Gone are the days when a single degree could carry you through a lifetime career. In today's fast-paced, tech-driven world, if you're not learning, you're falling behind. That's right—your ability to adapt and grow is no longer a luxury; it's a necessity. But let's face it, traditional education systems can't keep up This is more detailed information about the topic. It can be as long as you need it to be, and it will be displayed when the 'Read More' button is clicked.";
+  
   const companies = [
     accenture, cisco, intel, accenture, cisco, intel, accenture, cisco, intel, accenture, cisco, intel
   ];
@@ -301,7 +303,8 @@ function App() {
       <BlockImage
         imageUrl={knowledge}
         heading={Bheading}
-        paragraph={Bcontent}
+        initialParagraph={Bcontent}
+        expandedParagraph={BMorecontent}
         />
       </div>
             {/* <div className="p-5">

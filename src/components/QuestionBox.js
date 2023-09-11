@@ -8,13 +8,13 @@ const QuestionBox = ({ question, answer }) => {
   };
 
   return (
-    <div className="bg-white p-4 shadow-md mb-4 rounded-md font-lexend-deco">
+    <div className="bg-white p-4 shadow-md mb-4 rounded-md font-lexend-deca ">
       <div
         className="flex items-center justify-between cursor-pointer no-outline"
         onClick={toggleAnswer}
         style={{ WebkitTapHighlightColor: 'transparent' }} // Add this CSS property
       >
-        <h2 className="text-lg font-semibold">{question}</h2>
+        <h2 className="text-lg font-semibold ">{question}</h2>
         <div className={`w-6 h-6 transform ${isOpen ? 'rotate-180' : 'rotate-90'}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

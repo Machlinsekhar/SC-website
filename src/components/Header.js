@@ -9,7 +9,7 @@ const Header = () => {
   // };
 
   return (
-    <header className="flex items-center justify-between pl-4 px-6">
+    <header className="flex items-center justify-between pl-1 px-5">
       <div className="flex items-center">
         <img className="" src={logo} alt="Logo" />
         {/* <div className="md:ml-1">

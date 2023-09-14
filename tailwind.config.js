@@ -7,8 +7,7 @@ module.exports = {
 
     extend: {
       fontFamily: {
-        Poppins: ["Poppins", "sans-serif"],
-        'lexend-deca': ['"Lexend Deca"', 'sans'],
+        'lexend': ['Lexend', 'sans'],
         jost: ['Jost', 'sans'],
       },
       fontSize: {
@@ -23,6 +22,7 @@ module.exports = {
       width: {
         '50': '3.125rem',
         '326': '20.375rem',
+        '360': '22.5rem',
       },
       height: {
         '70': '4.375rem',

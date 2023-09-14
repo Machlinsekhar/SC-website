@@ -7,8 +7,8 @@ function Numbers() {
   const [targetReached, setTargetReached] = useState(false);
 
   const targetValues = {
-    studentsUpskilled: 1500,
-    activeMembers: 2500,
+    studentsUpskilled: 1555,
+    activeMembers: 2569,
     studentsPlaced: 200,
   };
 
@@ -60,7 +60,7 @@ function Numbers() {
   };
   
   return (
-    <div className=" mx-5 flex flex-row md:flex font-lexend-deco md:flex-row justify-between md:max-w-[1300px] md:mx-auto pt-10">
+    <div className=" mx-5 flex flex-row md:flex font-lexend md:flex-row justify-between md:max-w-[1300px] md:mx-auto pt-10">
 
 <div className={`flex flex-col ${getNumberDisplayStyle(activeMembers)}`}>
         <p className="md:text-4xl text-3xl text-[#3497F9] text-left font-bold">{getNumberDisplayText(activeMembers)}</p>

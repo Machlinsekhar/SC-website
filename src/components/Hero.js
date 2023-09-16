@@ -32,9 +32,9 @@ const Hero = () => {
   </p>
 
   <div className="flex justify-center pb-5">
-  <button className="sm:w-60 h-12 sm:h-16 p-2 sm:p-3 bg-[#2E7CF6] font-lexend rounded-full text-base sm:text-lg md:text-xl lg:text-2xl  text-white text-center border border-white border-2">
+  <a href='https://app.thesourcecatalyst.in/' target="_blank" className="sm:w-60 h-12 sm:h-16 p-2 sm:p-3 bg-[#2E7CF6] font-lexend rounded-full text-base sm:text-lg md:text-xl lg:text-2xl  text-white text-center border border-white border-2">
   GET UPSKILLED
-</button>
+</a>
   </div>
 </div>
 

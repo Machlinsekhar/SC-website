@@ -3,7 +3,7 @@ import React from 'react';
 const Advisors = ({ advice, imageSrc, aname, title, logoSrc }) => {
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 text-center relative my-10 max-w-[400px] mx-auto" >
-      <p className="text-lg font-medium font-jost">{advice}</p>
+      <p className="text-lg font-regular font-jost">{advice}</p>
       <p className="text-lg font-bold pt-3 font-lexend">{aname}</p>
       <p className="text-sm font-medium pb-10 text-[#2E7CF6] font-lexend">{title}</p>
       <div className="absolute bottom-0 left-1">

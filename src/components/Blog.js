@@ -1,45 +1,81 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
-const BlogItem = ({ image, title, description }) => {
-  const [expanded, setExpanded] = useState(false);
 
-  const toggleExpanded = () => {
-    setExpanded(!expanded);
-  };
+const Blog = ({ blogData }) => {
+    const [open, setOpen] = React.useState(false);
+    const [scroll, setScroll] = React.useState('paper');
 
-  const renderDescription = () => {
-    if (expanded) {
-      return <p className="text-gray-600 text-left">{description}</p>;
-    } else {
-      const truncatedDescription = description.slice(0, 100);
-      return (
-        <>
-          <p className="text-gray-600 text-left">{truncatedDescription}</p>
-          <button
-            onClick={toggleExpanded}
-            className="text-[#E7AA0F] font-medium underline mt-2 focus:outline-none"
-          >
-            {expanded? "View Less" : "View More"}
-          </button>
-        </>
-      );
-    }
-  };
+    const handleClickOpen = (scrollType) => () => {
+        setOpen(true);
+        setScroll(scrollType);
+    };
 
-  return (
-    <div className="md:max-w-[1300px] md:mx-auto grid grid-cols-1 md:grid-cols-2 gap-2">
-    <div className="mx-auto md:mx-0 mt-5 border border-gray-300 rounded-xl p-4 shadow-lg w-[380px]">
-      <img
-        className="w-full h-[200px] object-cover rounded-lg"
-        src={image}
-        alt="Blog Image"
-      />
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const { imageUrl, heading,subheading, initialParagraph, initialParagraph1, initialParagraph2, questions, endingParagraph } = blogData;
+    const descriptionElementRef = React.useRef(null);
+    React.useEffect(() => {
+        if (open) {
+            const { current: descriptionElement } = descriptionElementRef;
+            if (descriptionElement !== null) {
+                descriptionElement.focus();
+            }
+        }
+    }, [open]);
 
-      <p className="text-xl font-medium text-gray-800 mt-2 text-left">{title}</p>
+    return (
+        <div className='font-lexend'>
+            <div onClick={handleClickOpen('paper')}>
+                <div className="bg-white rounded-lg shadow-lg p-6 text-center relative my-10 w-[800px] max-w-[80vw] mx-auto font-lexend cursor-pointer ml-5">
+                    <div className="relative h-80">
+                        <img src={imageUrl} alt="Image" className="object-cover w-full h-full rounded-t-lg" />
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-semibold py-2">{heading}</h2>
+                    <h3 className='text-lg md:text-xl  pb-1 '>{subheading}</h3>
+                    <p className="text-gray-700 md:text-lg pb-3">{initialParagraph}</p>
+                </div>
+            </div>
 
-      <div className="mt-4">{renderDescription()}</div>
-    </div>
-  </div>
-);
-};
-export default BlogItem;
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                scroll={scroll}
+                maxWidth="md"
+                aria-labelledby="scroll-dialog-title"
+                aria-describedby="scroll-dialog-description"
+            >
+                {/* <DialogTitle id="scroll-dialog-title">Blog</DialogTitle> */}
+                <DialogContent dividers={scroll === 'paper'}>
+                <div className="relative h-80">
+          <img src={imageUrl} alt="Image" className="object-cover w-full h-full rounded-t-lg" />
+        </div>
+            <h2 className="text-2xl md:text-3xl font-bold py-4 ">{heading}</h2>
+            <h3 className='text-lg md:text-xl  pb-1 '>{subheading}</h3>
+            <p className="text-gray-700 md:text-lg pb-3">{initialParagraph}</p>
+            <p className="text-gray-700 md:text-lg pb-3">{initialParagraph1}</p>
+            <p className="text-gray-700 md:text-lg pb-3">{initialParagraph2}</p>
+            {questions.map((question, index) => (
+              <div key={index}>
+                <h1 className="text-lg md:text-xl font-medium">{question.question}</h1>
+                <p className="text-gray-700 md:text-lg pb-3">{question.answer}</p>
+              </div>
+            ))}
+            <p className="text-gray-700 md:text-lg pb-3">{endingParagraph}</p>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Close</Button>
+
+                </DialogActions>
+            </Dialog>
+        </div>
+    );
+}
+
+export default Blog;

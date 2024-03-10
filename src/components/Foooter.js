@@ -42,7 +42,7 @@ const Foooter = () => {
             <li className='p-2'><a href="https://merchant.razorpay.com/policy/MLxtKHxqa6MVYs/terms" className="text-gray-200">Terms & Conditions</a></li>
             <li className='p-2'><a href="https://merchant.razorpay.com/policy/MLxtKHxqa6MVYs/privacy" className="text-gray-200">Privacy Policy</a></li>
             <li className='p-2'><a href="https://merchant.razorpay.com/policy/MLxtKHxqa6MVYs/refund" className="text-gray-200">Cancellation & Refund</a></li>
-            <li className='p-2'><a href="https://merchant.razorpay.com/policy/MLxtKHxqa6MVYs/shipping" className="text-gray-200">Shipping & Delivery</a></li>
+            {/* <li className='p-2'><a href="https://merchant.razorpay.com/policy/MLxtKHxqa6MVYs/shipping" className="text-gray-200">Shipping & Delivery</a></li> */}
           </ul>
         </div>
         <div className="w-full lg:w-1/3 mt-6 lg:mt-0">
